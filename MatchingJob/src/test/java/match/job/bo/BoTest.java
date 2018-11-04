@@ -3,6 +3,7 @@ package test.java.match.job.bo;
 import static org.testng.Assert.assertNotNull;
 
 import java.util.List;
+import java.util.concurrent.Future;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -21,7 +22,7 @@ public class BoTest extends AbstractTestNGSpringContextTests {
 	
 	@Test
 	public void testBo() throws Exception {
-		List<Job> jobs = bo.findJobs(0);
-		assertNotNull(jobs);
+		Future<List<Job>> jobs = bo.findJobs(0);
+		assertNotNull(jobs.get());
 	}
 }

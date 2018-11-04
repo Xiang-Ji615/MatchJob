@@ -7,9 +7,12 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
+import java.util.concurrent.Future;
 import java.util.stream.Collectors;
 
 import org.springframework.expression.AccessException;
+import org.springframework.scheduling.annotation.Async;
+import org.springframework.scheduling.annotation.AsyncResult;
 import org.springframework.stereotype.Service;
 
 import main.java.match.job.model.job.Job;
@@ -20,8 +23,9 @@ public class MatchJobBoImp extends AbstractMatchJobBo implements IMatchJobBo {
 
 	private Worker worker;
 
+	@Async
 	@Override
-	public List<Job> findJobs(Integer workerId) throws Exception {
+	public Future<List<Job>> findJobs(Integer workerId) throws Exception {
 		List<Worker> workers = dao.listWorkers();
 		Worker worker = workers.stream().filter(w -> w.getUserId() == workerId).findFirst().orElse(null);
 		if (null == worker) {
@@ -30,7 +34,7 @@ public class MatchJobBoImp extends AbstractMatchJobBo implements IMatchJobBo {
 		return findTop3Jobs(worker);
 	}
 
-	private List<Job> findTop3Jobs(Worker worker) {
+	private Future<List<Job>> findTop3Jobs(Worker worker) {
 		this.worker = worker;
 		List<Job> allJobs = dao.listJobs();
 		if (!worker.getHasDriversLicense())
@@ -56,7 +60,7 @@ public class MatchJobBoImp extends AbstractMatchJobBo implements IMatchJobBo {
 					}
 		});
 			
-		return allJobs.size() > 3?allJobs.subList(0, 3):allJobs;
+		return new AsyncResult<List<Job>>(allJobs.size() > 3?allJobs.subList(0, 3):allJobs);
 	}
 
 	private Comparator<Job> locationComparator = new Comparator<Job>() {

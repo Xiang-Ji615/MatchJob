@@ -1,6 +1,7 @@
 package main.java.match.job.controller;
 
 import java.util.List;
+import java.util.concurrent.Future;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -22,8 +23,8 @@ public class MatchJobController {
 	@RequestMapping(value = "FindJobs/{workerId}", method = RequestMethod.GET)
 	public ResponseEntity findJobs(@PathVariable(value="workerId") Integer workerId) throws Exception{
 		try{
-			List<Job> jobs = bo.findJobs(workerId);
-			return ResponseEntity.ok(jobs);
+			Future<List<Job>> jobs = bo.findJobs(workerId);
+			return ResponseEntity.ok(jobs.get());
 		}catch(Exception e) {
 			return ResponseEntity.badRequest().body(e.getMessage());
 		}
