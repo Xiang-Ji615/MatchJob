@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="67784" started-at="2018-11-04T00:31:51Z" finished-at="2018-11-04T00:32:58Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="67784" started-at="2018-11-04T00:31:51Z" finished-at="2018-11-04T00:32:58Z">
+      <class name="test.java.match.job.bo.BoTest">
+        <test-method status="PASS" signature="springTestContextBeforeTestClass()[pri:0, instance:test.java.match.job.bo.BoTest@2f01783a]" name="springTestContextBeforeTestClass" is-config="true" duration-ms="20" started-at="2018-11-04T00:31:51Z" finished-at="2018-11-04T00:31:51Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestClass -->
+        <test-method status="PASS" signature="springTestContextPrepareTestInstance()[pri:0, instance:test.java.match.job.bo.BoTest@2f01783a]" name="springTestContextPrepareTestInstance" is-config="true" duration-ms="5439" started-at="2018-11-04T00:31:51Z" depends-on-methods="org.springframework.test.context.testng.AbstractTestNGSpringContextTests.springTestContextBeforeTestClass" finished-at="2018-11-04T00:31:56Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextPrepareTestInstance -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:test.java.match.job.bo.BoTest@2f01783a]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="6" started-at="2018-11-04T00:31:56Z" finished-at="2018-11-04T00:31:56Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void test.java.match.job.bo.BoTest.testBo() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="testBo()[pri:0, instance:test.java.match.job.bo.BoTest@2f01783a]" name="testBo" duration-ms="62268" started-at="2018-11-04T00:31:56Z" finished-at="2018-11-04T00:32:58Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testBo -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:test.java.match.job.bo.BoTest@2f01783a]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="4" started-at="2018-11-04T00:32:58Z" finished-at="2018-11-04T00:32:58Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void test.java.match.job.bo.BoTest.testBo() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextAfterTestClass()[pri:0, instance:test.java.match.job.bo.BoTest@2f01783a]" name="springTestContextAfterTestClass" is-config="true" duration-ms="1" started-at="2018-11-04T00:32:58Z" finished-at="2018-11-04T00:32:58Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestClass -->
+      </class> <!-- test.java.match.job.bo.BoTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
